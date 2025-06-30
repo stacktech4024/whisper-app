@@ -1,0 +1,7 @@
+{
+  "name": "WhisperApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
