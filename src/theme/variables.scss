@@ -1,2 +1,71 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+// src/theme/variables.scss
+// --------------------------------------------------
+// Color Palette
+// --------------------------------------------------
+$color-brand-primary:   #005EB8 !default;
+$color-brand-secondary: #F2994A !default;
+$color-success:         #27AE60 !default;
+$color-warning:         #E2B93B !default;
+$color-error:           #EB5757 !default;
+$color-text-900:        #101920 !default; // Black 2
+$color-text-800:        #1D1D1D !default; // Text
+$color-background:      #F6F7F9 !default;
+$color-white:           #FFFFFF !default;
+$grey-1:                #57595D !default; // Not Active
+$grey-2:                #8D8E90 !default; // Not Active 2
+$grey-3:                #828282 !default; // Gray 3
+$grey-4:                #BDBDBD !default; // Gray 4
+$grey-5:                #E3E4E6 !default; // Card Outline
+// --------------------------------------------------
+// Ionic Color Overrides
+// --------------------------------------------------
+// Primary brand color (deep purple) and ensure contrast text is white
+$ion-color-primary:           #4c3a64 !default;
+$ion-color-primary-contrast:  #FFFFFF !default;
+$ion-color-primary-shade:     #3b2d52 !default;
+$ion-color-primary-tint:      #665c7a !default;
+// --------------------------------------------------
+// Typography
+// --------------------------------------------------
+// Font families
+$font-heading:   'Open Sans', sans-serif !default;
+$font-body:      'Inter', sans-serif     !default;
+// Headings (Open Sans)
+$fs-h1: 56px;  $lh-h1: 61.6px; // Heading 1
+$fs-h2: 48px;  $lh-h2: 52.8px; // Heading 2
+$fs-h3: 40px;  $lh-h3: 44px;   // Heading 3
+$fs-h4: 32px;  $lh-h4: 35.2px; // Heading 4
+$fs-h5: 24px;  $lh-h5: 26.4px; // Heading 5
+$fs-h6: 20px;  $lh-h6: 22px;   // Heading 6
+// Body text (Inter)
+$fs-body-lg:     20px;  $lh-body-lg:     28px;   // Large Text Bold
+$fs-body-md:     18px;  $lh-body-md:     25.2px; // Medium Text Bold
+$fs-body:        16px;  $lh-body:        22.4px; // Normal Text Regular
+$fs-body-sm:     14px;  $lh-body-sm:     19.6px; // Small Text Regular
+$fs-body-mini:   12px;  $lh-body-mini:   16.8px; // Mini Text
+// --------------------------------------------------
+// Spacing (8px scale)
+// --------------------------------------------------
+$space-1:   8px   !default;
+$space-2:  16px   !default;
+$space-3:  24px   !default;
+$space-4:  32px   !default;
+$space-5:  40px   !default;
+$space-6:  56px   !default;
+$space-7:  72px   !default;
+$space-8:  80px   !default;
+$space-9:  96px   !default;
+$space-10:120px  !default;
+// --------------------------------------------------
+// Iconography
+// --------------------------------------------------
+$icon-size: 24px !default;
+
+// Force the Ionic CSS variable for “primary” to your brand purple
+:root {
+  --ion-color-primary:   #4C3A63 !important;
+  --ion-color-primary-rgb: 76, 58, 99 !important;
+  --ion-color-primary-contrast: #FFFFFF !important;
+  --ion-color-primary-shade:    #3B2D52 !important;
+  --ion-color-primary-tint:     #665C7A !important;
+}

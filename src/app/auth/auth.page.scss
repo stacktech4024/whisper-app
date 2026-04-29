@@ -1,0 +1,105 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  --ion-background-color: #FEF0F1;
+}
+
+ion-content {
+  background: transparent;
+
+  .card-sheet {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    padding: 32px;
+    background: #FEF0F1;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+
+  .logo-circle {
+    width: 280px;
+    height: 280px;
+    margin: -140px auto 24px;
+    border: 3px solid var(--ion-color-primary);
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img.logo {
+      width: 100%;           /* fill the container */
+      height: 100%;
+      object-fit: cover;     /* crop any excess so no white shows */
+      object-position: center;
+    }
+  }
+
+
+
+  .form-card {
+    width: 90%;
+    max-width: 360px;
+    margin: 0 auto 24px;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+
+    ion-item {
+      --background: transparent;
+      margin-bottom: 16px;
+      --inner-padding-start: 0;
+      --inner-padding-end: 0;
+
+      ion-input {
+        background: #fff;
+        border: 1px solid rgba(51, 39, 66, 0.3);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-family: 'Manrope', sans-serif;
+        font-size: 14px;
+        color: #332742;
+      }
+    }
+
+    .sign-in-btn {
+      width: 100%;
+      margin-top: 8px;
+      --background: var(--ion-color-primary);
+      color: #fff !important;
+      border-radius: 24px !important;
+      height: 48px;
+      line-height: 48px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .forgot-link {
+      margin-top: 12px;
+      &::part(native) {
+        color: #332742 !important;
+      }
+    }
+
+    .signup-link {
+      display: block;
+      text-align: center;
+      margin-top: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+
+      &::part(native) {
+        color: #332742 !important;
+      }
+
+      span {
+        color: var(--ion-color-primary) !important;
+        font-weight: 600;
+      }
+    }
+  }
+}

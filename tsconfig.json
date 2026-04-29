@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -17,11 +16,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2022",
-    "module": "es2020",
-    "lib": [
-      "es2018", 
-      "dom"
-    ],
+    "module": "es2020", // Kept as is, but consider aligning with target if issues arise
+    "lib": ["es2022", "dom"], // Updated to es2022 to match target
+    "types": ["node"], // Added to include Node.js types
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

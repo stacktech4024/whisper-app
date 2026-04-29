@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <!-- Go back to the welcome screen -->
+      <ion-back-button defaultHref="/welcome" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Verify {{ originalPhone }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input
+      type="text"
+      placeholder="Enter code"
+      [(ngModel)]="code"
+      name="code"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button
+    expand="block"
+    (click)="confirmCode()"
+    [disabled]="isLoading || !code"
+    class="ion-margin-top"
+  >
+    Next
+  </ion-button>
+</ion-content>
+
+<!-- Footer fixed so it’s always tappable -->
+<ion-footer slot="fixed">
+  <ion-toolbar color="light">
+    <ion-button
+      fill="clear"
+      size="small"
+      (click)="router.navigateByUrl('/welcome', { replaceUrl: true })"
+    >
+      ← Back to Welcome
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,53 @@
+<!-- Collapsed status bar (visible only when breakpoint === 0) -->
+<div
+  *ngIf="collapsedVisible()"
+  class="collapsed-bar"
+  tabindex="0"
+  aria-label="Open contacts panel"
+  (click)="openHalf()"
+>
+  <span>Currently not sharing location&nbsp;…</span>
+</div>
+
+<!-- Sliding-sheet modal -->
+<ion-modal
+  #modal
+  [breakpoints]="breakpoints"
+  [initialBreakpoint]="0"
+  handleBehavior="cycle"
+  [backdropBreakpoint]="0.45"
+  class="contacts-sheet"
+>
+  <!-- Grabber -->
+  <div class="grabber" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <div class="sheet-header">
+    <h2>Trusted Contacts</h2>
+    <button
+      class="icon-btn"
+      aria-label="Collapse contacts panel"
+      (click)="collapse()"
+    >
+      ▼
+    </button>
+  </div>
+
+  <!-- Body placeholder (we’ll fill in Step 2) -->
+  <div class="sheet-body">
+    <p class="placeholder">
+      TODO: avatar row &amp; action buttons (Step 2)
+    </p>
+  </div>
+
+  <!-- Expand button (shown only at half height) -->
+  <button
+    *ngIf="sheetState.breakpoint$ | async as bp"
+    class="expand-btn"
+    aria-label="Expand contacts panel"
+    (click)="openFull()"
+    [hidden]="bp === 1 || bp === 0"
+  >
+    ▲
+  </button>
+</ion-modal>

@@ -1,0 +1,61 @@
+<ion-content fullscreen class="ion-padding" style="--ion-background-color: #FEF0F1; color: #332742;">
+  <div class="wrapper" style="padding: 16px;">
+    <div
+      class="onboarding"
+      #onboarding
+      style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 24px;"
+    >
+      <div class="slide" style="min-width: 100%; scroll-snap-align: start;">
+        <div class="logo-wrapper" style="text-align: center;">
+          <img src="assets/whisper-logo.jpg" alt="Whisper Logo" style="width: 120px;" />
+        </div>
+        <h2>Welcome to Whisper</h2>
+        <p>
+          Your personal safety companion built to support your intuition, keep you
+          connected, and help you act early when something feels off.
+        </p>
+        <ion-button expand="block" (click)="scrollNext()">Get Started</ion-button>
+      </div>
+
+      <div class="slide" style="min-width: 100%; scroll-snap-align: start;">
+        <h2>Always on, never in the way.</h2>
+        <p>
+          Discreet safety features that stay ready without interrupting your day.
+        </p>
+      </div>
+
+      <div class="slide" style="min-width: 100%; scroll-snap-align: start;">
+        <h2>Share your steps. Stay connected.</h2>
+        <p>
+          Live location and instant alerts keep your circle in the loop.
+        </p>
+      </div>
+
+      <div class="slide" style="min-width: 100%; scroll-snap-align: start;">
+        <h2>Custom tools for every moment.</h2>
+        <p>
+          Voice triggers, alerts, and sharing — tailored to fit your life.
+        </p>
+      </div>
+
+      <div class="slide" style="min-width: 100%; scroll-snap-align: start;">
+        <h2>Confidence, wherever you go.</h2>
+        <p>
+          Whisper helps you act early and move through the world with ease.
+        </p>
+        <ion-button expand="block" (click)="goNext()">Create Account</ion-button>
+        <ion-button fill="clear" expand="block" (click)="goLogin()">Log in</ion-button>
+      </div>
+    </div>
+
+    <div class="pagination" style="display: flex; justify-content: center; margin-top: 16px;">
+      <div
+        class="dot"
+        *ngFor="let i of [0,1,2,3,4]"
+        [class.active]="currentSlide === i"
+        style="width: 10px; height: 10px; border-radius: 50%; background: #ccc; margin: 0 4px;"
+        [style.background]="currentSlide === i ? '#332742' : '#ccc'"
+      ></div>
+    </div>
+  </div>
+</ion-content>

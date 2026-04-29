@@ -1,0 +1,137 @@
+Project: whisper-app
+Path: C:\Users\Darren\Desktop\School\whisper\whisper-app
+Generated: 2025-07-26, 7:35:42 a.m.
+
+├── 📁 emulator-data/
+│   ├── 📁 auth_export/
+│   │   ├── ⚙️ accounts.json
+│   │   └── ⚙️ config.json
+│   ├── 📁 firestore_export/
+│   │   ├── 📁 all_namespaces/
+│   │   │   └── 📁 all_kinds/
+│   └── ⚙️ firebase-export-metadata.json
+├── 📁 resources/
+├── 📁 src/
+│   ├── 📁 app/
+│   │   ├── 📁 app/
+│   │   │   └── 📁 services/
+│   │   │       ├── 📘 profile.service.spec.ts
+│   │   │       └── 📘 profile.service.ts
+│   │   ├── 📁 auth/
+│   │   │   ├── 🌐 auth.page.html
+│   │   │   ├── 🎨 auth.page.scss
+│   │   │   ├── 📘 auth.page.spec.ts
+│   │   │   └── 📘 auth.page.ts
+│   │   ├── 📁 components/
+│   │   │   └── 📁 menu/
+│   │   │       ├── 🌐 menu.component.html
+│   │   │       ├── 🎨 menu.component.scss
+│   │   │       ├── 📘 menu.component.spec.ts
+│   │   │       └── 📘 menu.component.ts
+│   │   ├── 📁 contacts-sheet/
+│   │   │   ├── 🌐 contacts-sheet.component.html
+│   │   │   ├── 🎨 contacts-sheet.component.scss
+│   │   │   ├── 📘 contacts-sheet.component.ts
+│   │   │   └── 📘 sheet-state.service.ts
+│   │   ├── 📁 forgot-password/
+│   │   │   ├── 🌐 forgot-password.component.html
+│   │   │   ├── 🎨 forgot-password.component.scss
+│   │   │   ├── 📘 forgot-password.component.spec.ts
+│   │   │   └── 📘 forgot-password.component.ts
+│   │   ├── 📁 guards/
+│   │   │   └── 📘 auth.guard.ts
+│   │   ├── 📁 home/
+│   │   │   ├── 🌐 home.component.html
+│   │   │   ├── 🎨 home.component.scss
+│   │   │   ├── 📘 home.component.spec.ts
+│   │   │   └── 📘 home.component.ts
+│   │   ├── 📁 locations/
+│   │   │   ├── 🌐 locations.component.html
+│   │   │   ├── 🎨 locations.component.scss
+│   │   │   ├── 📘 locations.component.spec.ts
+│   │   │   └── 📘 locations.component.ts
+│   │   ├── 📁 profile/
+│   │   │   ├── 🌐 profile.component.html
+│   │   │   ├── 🎨 profile.component.scss
+│   │   │   ├── 📘 profile.component.spec.ts
+│   │   │   └── 📘 profile.component.ts
+│   │   ├── 📁 services/
+│   │   │   ├── 📘 auth.service.ts
+│   │   │   ├── 📘 block-group-lookup.service.ts
+│   │   │   ├── 📘 cache.service.ts
+│   │   │   ├── 📘 profile.service.spec.ts
+│   │   │   ├── 📘 profile.service.ts
+│   │   │   ├── 📘 sa-csv.service.ts
+│   │   │   ├── 📘 storage.service.spec.ts
+│   │   │   ├── 📘 storage.service.ts
+│   │   │   └── 📘 zip-lookup.service.ts
+│   │   ├── 📁 signup/
+│   │   │   ├── 🌐 signup.page.html
+│   │   │   ├── 🎨 signup.page.scss
+│   │   │   ├── 📘 signup.page.spec.ts
+│   │   │   └── 📘 signup.page.ts
+│   │   ├── 📁 welcome/
+│   │   │   ├── 📁 enter-phone/
+│   │   │   │   ├── 🌐 enter-phone.component.html
+│   │   │   │   ├── 🎨 enter-phone.component.scss
+│   │   │   │   └── 📘 enter-phone.component.ts
+│   │   │   ├── 📁 verify-phone/
+│   │   │   │   ├── 🌐 verify-phone.component.html
+│   │   │   │   ├── 🎨 verify-phone.component.scss
+│   │   │   │   └── 📘 verify-phone.component.ts
+│   │   │   ├── 🌐 welcome.component.html
+│   │   │   ├── 🎨 welcome.component.scss
+│   │   │   └── 📘 welcome.component.ts
+│   │   ├── 🌐 app.component.html
+│   │   ├── 🎨 app.component.scss
+│   │   ├── 📘 app.component.spec.ts
+│   │   ├── 📘 app.component.ts
+│   │   ├── 📘 app.routes.ts
+│   │   └── 📘 firebase.ts
+│   ├── 📁 assets/
+│   │   ├── 📁 gbfiles/
+│   │   ├── 📁 icon/
+│   │   ├── 📁 latlon/
+│   │   ├── 📁 slides/
+│   │   ├── ⚙️ travis-bg.json
+│   ├── 📁 environments/
+│   │   ├── 📘 environment.prod.ts
+│   │   └── 📘 environment.ts
+│   ├── 📁 theme/
+│   │   └── 🎨 variables.scss
+│   ├── 🎨 global.scss
+│   ├── 🌐 index.html
+│   ├── 📘 main.ts
+│   ├── 📘 polyfills.ts
+│   ├── 📘 test.ts
+│   └── 📘 zone-flags.ts
+├── ⚙️ .eslintrc.json
+├── ⚙️ angular.json
+├── 📘 capacitor.config.ts
+├── ⚙️ cors.json
+├── ⚙️ firebase.json
+├── 📄 generate-tree.js
+├── ⚙️ ionic.config.json
+├── 📄 karma.conf.js
+├── ⚙️ package-lock.json
+├── ⚙️ package.json
+├── ⚙️ tsconfig.app.json
+├── ⚙️ tsconfig.json
+└── ⚙️ tsconfig.spec.json
+
+=== ROUTING INFORMATION ===
+
+Found routing files:
+  📘 src\app\app.routes.ts
+
+Found components:
+  📘 src\app\app.component.ts
+  📘 src\app\components\menu\menu.component.ts
+  📘 src\app\contacts-sheet\contacts-sheet.component.ts
+  📘 src\app\forgot-password\forgot-password.component.ts
+  📘 src\app\home\home.component.ts
+  📘 src\app\locations\locations.component.ts
+  📘 src\app\profile\profile.component.ts
+  📘 src\app\welcome\enter-phone\enter-phone.component.ts
+  📘 src\app\welcome\verify-phone\verify-phone.component.ts
+  📘 src\app\welcome\welcome.component.ts

@@ -1,37 +1,120 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
-
-/* Core CSS required for Ionic components to work properly */
+/* ============================================================================
+   Whisper – Global stylesheet
+   ============================================================================ */
+/* 1 ── Ionic Core & Utilities (leave as-is) ─────────────────────────────────── */
 @import "@ionic/angular/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
-
-/* Optional CSS utils that can be commented out */
+/* Optional utility packs you were already using */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
-
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+/* Third-party CSS (Leaflet, etc.) */
+@import "~leaflet/dist/leaflet.css";
+/* Ionic’s auto dark-mode palette (system-prefers-dark) */
 @import "@ionic/angular/css/palettes/dark.system.css";
+/* 2 ── Brand fonts ----------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Inter:wght@400;600&display=swap');
+/* 3 ── Global design tokens -------------------------------------------------- */
+:root {
+  /* Typography */
+  --font-body: 'Inter', sans-serif;
+  --font-head: 'Open Sans', sans-serif;
+  /* Ripple colour (subtle violet) */
+  --ion-ripple-color: rgba(76, 58, 99, 0.24);
+  /* 8-pt spacing scale */
+  --space-1: .25rem;  /* 4 px */
+  --space-2: .5rem;   /* 8 px */
+  --space-3: 1rem;    /* 16 px */
+  --space-4: 1.5rem;  /* 24 px */
+  --space-5: 2rem;    /* 32 px */
+}
+/* 4 ── Base element styling -------------------------------------------------- */
+body {
+  background: var(--ion-background-color);  /* set in variables.scss */
+  color:      var(--ion-text-color);
+  font-family: var(--font-body);
+  font-weight: 500;                         /* what you had before */
+}
+h1, h2, h3, h4, h5, h6,
+.ion-typography {
+  font-family: var(--font-head);
+}
+/* 5 ── Header & tab tweaks you already had ----------------------------------- */
+ion-title {
+  display: flex;
+  align-items: center;
+  ion-icon {
+    font-size: 24px;
+    margin-right: 8px;
+  }
+}
+ion-tab-button ion-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+/* 6 ── Dark-theme Alert / Select patch (kept intact) ------------------------- */
+ion-alert {
+  --background: #181818;
+  --backdrop-opacity: 0.45;
+  --color: #f5f5f5;
+}
+ion-alert .alert-button {
+  --color: #f5f5f5;
+  color:   #f5f5f5 !important;
+  background-color: #181818 !important;
+}
+ion-alert .alert-button[role="cancel"]  { --color:#ff5252; color:#ff5252 !important; }
+ion-alert .alert-button[role="confirm"] { --color:#4caf50; color:#4caf50 !important; }
+ion-alert .alert-radio-label,
+ion-alert .alert-checkbox-label {
+  color:#f5f5f5 !important;
+}
+ion-alert .alert-tappable.alert-radio-checked,
+ion-alert .alert-tappable.alert-checkbox-checked {
+  background:#2e2e2e;
+}
+ion-alert .alert-radio-inner.sc-ion-alert-md  { background:#4caf50; }
+ion-alert .alert-radio-icon.sc-ion-alert-md   { border-color:#bcbcbc; }
+/* 7 ── Utility helpers ------------------------------------------------------- */
+/* Soft-pink “surface card” (Figma onboarding form) */
+.surface-card {
+  background: var(--ion-color-secondary);
+  color:      var(--ion-color-dark);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+/* Margin helpers (extend as needed) */
+.m-1  { margin:      var(--space-1) !important; }
+.mt-2 { margin-top:  var(--space-2) !important; }
+/* Text-colour utilities */
+.text-primary   { color: var(--ion-color-primary)   !important; }
+.text-secondary { color: var(--ion-color-secondary) !important; }
+.text-dark      { color: var(--ion-color-dark)      !important; }
+.text-light     { color: var(--ion-color-light)     !important; }
+/* 8 ── Ripple & button overrides you had ------------------------------------ */
+ion-ripple-effect {
+  --ion-ripple-color: var(--ion-ripple-color);
+}
+ion-button::part(native) {
+  color: #ffffff !important;  /* white text on violet btns */
+}
+/* Variant: white-background button with dark text */
+ion-button.white-bg::part(native) {
+  background: var(--ion-color-light);
+  color: var(--ion-color-dark) !important;
+}
+/* simple elevation helper */
+@mixin shadow($elevation: 1) {
+  @if $elevation == 1 {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  } @else if $elevation == 2 {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  } @else if $elevation == 3 {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+}

@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Crime Locations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- flex wrapper so map height stays fixed and list scrolls -->
+  <div class="page-layout">
+
+    <!-- ───── FILTER BAR ───── -->
+    <div class="filter-bar">
+      <!-- City selector -->
+      <ion-item>
+        <ion-label>City</ion-label>
+        <ion-select
+          [(ngModel)]="selectedCity"
+          (ionChange)="onCityChange($event.detail.value)"
+        >
+          <ion-select-option value="toronto">Toronto</ion-select-option>
+          <ion-select-option value="chicago">Chicago</ion-select-option>
+          <ion-select-option value="atlanta">Atlanta</ion-select-option>
+          <ion-select-option value="texas">Texas</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Neighbourhood selector -->
+      <ion-item>
+        <ion-label>Neighbourhood</ion-label>
+        <ion-select
+          [(ngModel)]="selectedNeighbourhood"
+          (ionChange)="onNeighbourhoodChange($event.detail.value)"
+          interface="alert"
+        >
+          <ion-select-option
+            *ngFor="let opt of neighbourhoodOptions"
+            [value]="opt.value"
+          >
+            {{ opt.label }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Use My Location button -->
+      <ion-button expand="block" class="use-location" (click)="useDeviceLocation()">
+        Use My Location
+      </ion-button>
+
+      <!-- Year selector -->
+      <ion-item>
+        <ion-label>Year</ion-label>
+        <ion-select
+          [(ngModel)]="selectedYear"
+          (ionChange)="onYearChange($event.detail.value)"
+        >
+          <ion-select-option *ngFor="let y of availableYears" [value]="y">
+            {{ y }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Filter selector -->
+      <ion-item>
+        <ion-label>Filter</ion-label>
+        <ion-select
+          [(ngModel)]="selectedFilter"
+          (ionChange)="onFilterChange($event.detail.value)"
+        >
+          <ion-select-option *ngFor="let opt of filterOptions" [value]="opt">
+            {{ opt }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <!-- /filter-bar -->
+
+
+    <!-- ───── MAP SECTION ───── -->
+    <div class="map-wrapper">
+      <div id="map"></div>
+
+      <!-- legend (added) -->
+      <div class="leaflet-control legend">
+        <div class="legend-row">
+          <img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" width="12" />
+          &nbsp; Assault
+        </div>
+        <div class="legend-row">
+          <img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="12" />
+          &nbsp; Break & Enter
+        </div>
+        <div class="legend-row">
+          <img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" width="12" />
+          &nbsp; Theft
+        </div>
+        <div class="legend-row">
+          <img src="https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png" width="12" />
+          &nbsp; Other
+        </div>
+      </div>
+    </div>
+
+<!-- ───── INCIDENT LIST ───── -->
+<div class="incident-wrapper">
+  <!-- If we've got incidents to show… -->
+  <ion-list *ngIf="!loading && filteredIncidents.length">
+    <ion-item *ngFor="let inc of filteredIncidents" class="incident-card">
+      <ion-label>
+        <!-- BIG HEADER: colored icon + high-level display_category -->
+        <h2 class="threat-header">
+          <img
+            [src]="iconUrl(inc.display_category)"
+            class="card-marker"
+            alt=""
+          />
+          {{ inc.display_category }}
+        </h2>
+
+        <!-- SUBTEXT: show raw if different, then date & distance -->
+        <p class="incident-details">
+          <small *ngIf="inc.category !== inc.display_category">
+            ({{ inc.category }})
+          </small>
+          <br />
+
+          <!-- formattedDate or N/A -->
+          {{ inc.formattedDate || 'N/A' }}
+          &nbsp;|&nbsp;
+          {{ inc.distance.toFixed(2) }} km away
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Loading state -->
+  <ion-text *ngIf="loading" class="loading">
+    <p>Loading incidents…</p>
+  </ion-text>
+
+  <!-- No data fallback -->
+  <ion-text *ngIf="!loading && !filteredIncidents.length" class="no-data">
+    <p>No incidents found.</p>
+  </ion-text>
+</div>
+<!-- /incident-wrapper -->

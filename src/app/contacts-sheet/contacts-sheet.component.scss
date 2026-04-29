@@ -1,0 +1,85 @@
+/* src/app/contacts-sheet/contacts-sheet.component.scss */
+
+:host {
+  /* ensures collapsed bar stays above nav */
+  position: fixed;
+  bottom: var(--ion-safe-area-bottom, 0);
+  left: 0;
+  width: 100%;
+  pointer-events: none; // components inside re-enable as needed
+}
+
+/* ---------- collapsed bar ---------- */
+.collapsed-bar {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  color: var(--ion-color-primary);
+  background: #fff; /* match sheet */
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- modal / sheet ---------- */
+::ng-deep .contacts-sheet {
+  --height: 100%;
+  --border-radius: 24px 24px 0 0;
+  pointer-events: all;
+}
+
+.grabber {
+  width: 52px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--ion-color-medium);
+  margin: 8px auto 12px;
+}
+
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 12px;
+
+  h2 {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ion-color-primary);
+  }
+
+  .icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--ion-color-primary);
+  }
+}
+
+.sheet-body {
+  padding: 0 20px 40px;
+
+  .placeholder {
+    text-align: center;
+    color: var(--ion-color-medium);
+  }
+}
+
+.expand-btn {
+  position: absolute;
+  right: 20px;
+  top: 8px; /* below grabber */
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--ion-color-primary);
+}
+
+/* make sure body content scrolls when full height */
+::ng-deep .contacts-sheet ion-content {
+  --padding-bottom: 40px;
+}

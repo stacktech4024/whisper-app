@@ -1,0 +1,44 @@
+<ion-footer>
+  <div class="bottom-nav">
+    <!-- Left 80%: Map / Contacts / Alerts -->
+    <div class="nav-group">
+      <button
+        class="nav-item"
+        [class.active]="active === 'locations'"
+        (click)="select('locations')"
+      >
+        <ion-icon name="map-outline"></ion-icon>
+        <span>Map</span>
+      </button>
+
+      <button
+        class="nav-item"
+        [class.active]="active === 'contacts'"
+        (click)="select('contacts')"
+      >
+        <ion-icon name="people-outline"></ion-icon>
+        <span>Contacts</span>
+      </button>
+
+      <button
+        class="nav-item"
+        [class.active]="active === 'alerts'"
+        (click)="select('alerts')"
+      >
+        <ion-icon name="notifications-outline"></ion-icon>
+        <span>Alerts</span>
+      </button>
+    </div>
+
+    <!-- Right 20%: S.O.S -->
+    <div class="sos-container">
+      <button
+        class="sos-button"
+        [class.move-right]="active !== 'sos'"
+        (click)="select('sos')"
+      >
+        S.O.S
+      </button>
+    </div>
+  </div>
+</ion-footer>

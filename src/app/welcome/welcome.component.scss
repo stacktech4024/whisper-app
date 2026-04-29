@@ -1,0 +1,139 @@
+/* src/app/welcome/welcome.component.scss */
+
+/* 1) Import your theme variables so $space-2 (etc.) are defined */
+@import "variables";
+
+/* 2) Then the rest of your component styles */
+:host {
+  display: block;
+  height: 100%;
+
+  .wrapper {
+    position: relative;
+    height: 100%;
+    background: #ffffff; /* Pure white for light mode match */
+  }
+
+  .welcome-container {
+    display: block;
+  }
+
+  .onboarding {
+    display: flex;
+    /* Ionic handles the scrolling now via [scrollX] on ion-content */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling/swiping */
+  }
+
+  /* Hide scrollbar for cleaner UX */
+  .onboarding::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* here we can use your spacing scale */
+    padding: 0 $space-2;
+    background: #ffffff; /* Ensure each slide is white */
+  }
+
+  /* wrapper for circular logo */
+  .logo-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $space-4;
+    overflow: hidden;
+
+    /* subtle inner shadow for distinction */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  }
+
+  /* make the logo fill the circle, preserving aspect */
+  .logo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    line-height: 31.2px;
+    font-weight: 500;
+    color: #332742;
+    text-align: center;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #332742;
+    text-align: center;
+    margin-bottom: $space-4;
+  }
+
+  ion-button {
+    --background: #4c3a63;
+    --border-radius: 24px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    width: 200px;
+    margin-bottom: $space-4;
+    --color: #fff; /* ensure your button text is always white */
+  }
+
+  ion-button[fill="clear"] {
+    --color: #332742;
+  }
+
+  .pagination {
+    position: absolute;
+    top: $space-4; /* Position at top to match screenshot */
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .dot {
+    width: 12px; /* Pill-shaped for subtle oval */
+    height: 4px;
+    border-radius: 2px;
+    background: #828282; /* Light dark gray for inactive visibility on white */
+    margin: 0 $space-1;
+    transition: background 0.3s ease;
+  }
+
+  .dot.active {
+    background: #332742; /* Full dark for active */
+  }
+}

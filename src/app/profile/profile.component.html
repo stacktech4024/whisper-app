@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ng-container *ngIf="profile; else loading">
+  <ion-content class="profile-content">
+    <div class="card-sheet">
+      <!-- Avatar + greeting -->
+      <div
+        class="avatar-wrapper"
+        [class.editable]="isEditing"
+        (click)="isEditing && triggerFileInput()"
+      >
+        <img
+          [src]="profile.avatarUrl || 'assets/default-avatar.png'"
+          alt="Avatar"
+          class="avatar-img"
+        />
+        <ion-icon
+          *ngIf="isEditing"
+          name="add-circle"
+          class="avatar-icon"
+        ></ion-icon>
+        <input
+          #fileInput
+          type="file"
+          accept="image/*"
+          hidden
+          (change)="onAvatarSelected($event)"
+        />
+      </div>
+
+      <!-- Greeting -->
+      <h2 class="profile-greeting">
+        Hello, {{ profile.firstName || 'there' }}
+      </h2>
+
+      <!-- VIEW MODE -->
+      <div *ngIf="!isEditing" class="profile-view">
+        <ion-item lines="full">
+          <ion-label class="view-label">First Name</ion-label>
+          <ion-text class="view-text">{{ profile.firstName }}</ion-text>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label class="view-label">Last Name</ion-label>
+          <ion-text class="view-text">{{ profile.lastName }}</ion-text>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label class="view-label">Email</ion-label>
+          <ion-text class="view-text">{{ profile.email }}</ion-text>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label class="view-label">Phone</ion-label>
+          <ion-text class="view-text">
+            {{ profile.phone || 'Not set' }}
+          </ion-text>
+        </ion-item>
+
+        <div class="actions">
+          <ion-button expand="block" (click)="toggleEdit()">
+            Edit Profile
+          </ion-button>
+          <ion-button
+            expand="block"
+            color="danger"
+            (click)="confirmDelete()"
+          >
+            Delete Account
+          </ion-button>
+          <ion-button expand="block" color="primary" (click)="logout()">
+            Log Out
+          </ion-button>
+        </div>
+      </div>
+
+      <!-- EDIT MODE -->
+      <form
+        *ngIf="isEditing"
+        class="profile-edit"
+        (ngSubmit)="saveProfile()"
+      >
+        <ion-item fill="outline">
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input
+            [(ngModel)]="temp.firstName"
+            name="firstName"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item fill="outline">
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input
+            [(ngModel)]="temp.lastName"
+            name="lastName"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item fill="outline">
+          <ion-label position="floating">Phone</ion-label>
+          <ion-input
+            [(ngModel)]="temp.phone"
+            name="phone"
+            type="tel"
+          ></ion-input>
+        </ion-item>
+
+        <div class="actions">
+          <ion-button expand="block" type="submit" color="primary">
+            Save
+          </ion-button>
+          <ion-button
+            expand="block"
+            fill="solid"
+            color="danger"
+            (click)="cancelEdit()"
+            type="button"
+          >
+            Cancel
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+</ng-container>
+
+<ng-template #loading>
+  <ion-content class="ion-padding">
+    <ion-spinner name="crescent"></ion-spinner>
+  </ion-content>
+</ng-template>

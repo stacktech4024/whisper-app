@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <!-- Go back to the welcome screen -->
+      <ion-back-button defaultHref="/welcome" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Enter your Phone Number</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="enter-phone-content">
+  <div class="card-sheet">
+    <form (ngSubmit)="sendCode()">
+      <ion-item fill="outline" class="field-box">
+        <ion-input
+          required
+          type="tel"
+          [(ngModel)]="phone"
+          name="phone"
+          placeholder="Enter your phone number"
+        ></ion-input>
+      </ion-item>
+      <p class="small-print">
+        We’ll send a text to verify your account
+      </p>
+
+      <div class="actions">
+        <ion-button
+          expand="block"
+          shape="round"
+          class="next-btn"
+          type="submit"
+          [disabled]="isLoading"
+        >
+          Next
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
+
+<!-- Footer fixed so it’s always tappable -->
+<ion-footer slot="fixed">
+  <ion-toolbar color="light">
+    <ion-button
+      fill="clear"
+      size="small"
+      (click)="router.navigateByUrl('/welcome', { replaceUrl: true })"
+    >
+      ← Back to Welcome
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

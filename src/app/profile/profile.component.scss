@@ -1,0 +1,110 @@
+@import "variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  --ion-background-color: #FEF0F1;
+}
+
+.profile-content {
+  --padding-start: 0;
+  --padding-end:   0;
+  background: transparent;
+
+  .card-sheet {
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4) var(--space-5);
+    background: #FEF0F1;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+
+  .avatar-wrapper {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto var(--space-4);
+
+    background: #F1EAFB;
+    border: 3px solid var(--ion-color-primary);
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    &.editable:hover .avatar-img {
+      opacity: 0.8;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-icon {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      font-size: 32px;
+      color: var(--ion-color-primary);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      padding: 0.25rem;
+      z-index: 10;
+    }
+  }
+
+  .profile-greeting {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    color: #332742;
+    text-align: center;
+    margin: var(--space-3) 0 var(--space-4);
+  }
+
+  .profile-view,
+  .profile-edit {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    ion-item {
+      margin-bottom: var(--space-2);
+      --background: transparent;
+    }
+
+    .view-label, .view-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      color: #332742;
+    }
+
+    .view-label {
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      width: 100%;
+    }
+  }
+}

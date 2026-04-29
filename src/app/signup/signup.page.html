@@ -1,0 +1,93 @@
+<!-- src/app/signup/signup.page.html -->
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/auth" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create your account</ion-title>
+  </ion-toolbar>
+  
+  <!-- Subtitle row with tappable login link -->
+  <div class="subtitle">
+    <span>Sign into your account</span>
+    <a (click)="navigateToLogin()">Log in →</a>
+  </div>
+</ion-header>
+
+<ion-content class="signup-content">
+  <div class="card-sheet">
+    <div class="logo-circle">
+      <img src="assets/whisper-logo.jpg" class="logo" alt="Whisper Logo" />
+    </div>
+    
+    <!-- IMPORTANT: Add this recaptcha container for Firebase phone auth -->
+    <div id="recaptcha-container"></div>
+    
+    <form class="fields-column" (ngSubmit)="signUp()" #frm="ngForm">
+      <ion-item fill="outline" class="field-box">
+        <ion-input
+          required
+          [(ngModel)]="firstName"
+          name="firstName"
+          placeholder="First Name"
+        ></ion-input>
+      </ion-item>
+      
+      <ion-item fill="outline" class="field-box">
+        <ion-input
+          required
+          [(ngModel)]="lastName"
+          name="lastName"
+          placeholder="Last Name"
+        ></ion-input>
+      </ion-item>
+      
+      <ion-item fill="outline" class="field-box">
+        <ion-input
+          required
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Email"
+        ></ion-input>
+      </ion-item>
+      
+      <ion-item fill="outline" class="field-box">
+        <ion-input
+          required
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Password"
+        ></ion-input>
+      </ion-item>
+      
+      <ion-item fill="outline" class="field-box">
+        <ion-input
+          required
+          type="password"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+        ></ion-input>
+      </ion-item>
+      
+      <p class="small-print">
+        By creating an account you agree to our Terms of Service and Privacy Policy.
+      </p>
+      
+      <div class="actions">
+        <ion-button
+          expand="block"
+          shape="round"
+          class="next-btn"
+          type="submit"
+          [disabled]="!frm.form.valid || isLoading"
+        >
+          <ion-spinner name="crescent" *ngIf="isLoading"></ion-spinner>
+          <span *ngIf="!isLoading">Next</span>
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

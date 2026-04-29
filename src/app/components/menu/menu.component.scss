@@ -1,0 +1,87 @@
+:host {
+  display: block;
+}
+
+.bottom-nav {
+  position: relative;
+  display: flex;
+  height: 76px;
+  padding: 12px 12px 0;
+  background: #FEFDFE;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  overflow: visible;
+}
+
+/* Left 80%: three items spaced evenly */
+.nav-group {
+  flex: 4;                          /* 4 / (4+1) = 80% */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Right 20%: S.O.S container */
+.sos-container {
+  flex: 1;                          /* 1 / (4+1) = 20% */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Standard nav items */
+.nav-item {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4C3A63;
+  transition: color 0.3s;
+
+  ion-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+}
+
+.nav-item.active {
+  color: #332742;
+  ion-icon {
+    color: #332742;
+  }
+}
+
+/* Floating S.O.S pill */
+.sos-button {
+  position: absolute;
+  bottom: 32px;            /* reduce protrusion */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  /* remove white outline: */
+  border: none;
+  border-radius: 50%;
+  background: #4C3A63;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FEFDFE;
+  z-index: 10;
+  transition: left 0.3s, transform 0.3s;
+}
+
+.sos-button.move-right {
+  left: auto;
+  right: 12px;
+  transform: translateX(0);
+}
+
