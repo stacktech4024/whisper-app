@@ -6,6 +6,7 @@ A cross-platform mobile application designed to capture and transcribe speech us
 
 - **Framework:** Ionic 6 / Angular
 - **Language:** TypeScript
+- **UI styling:** HTML and SCSS (`src/global.scss`, `src/theme/variables.scss`)
 - **Backend:** Firebase (Authentication, Firestore, Storage, Emulator Suite)
 - **Mobile Runtime:** Capacitor
 - **Testing:** Karma
